@@ -80,8 +80,8 @@ class AsyncEngineConnector:
                 # TODO(jknight): Should make sure we are catching cancellations 
                 # correctly inside this _get_queue...(...) awaitable object too
                 output = await self._get_queue_item_until_stopped(queue)
-                if output.error is not None:
-                    raise TextGenerationError(output.error)
+                # if output.error is not None:
+                #     raise TextGenerationError(output.error)
                 yield output
                 if output.is_finished:
                     return
