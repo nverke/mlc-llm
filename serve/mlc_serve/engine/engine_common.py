@@ -44,6 +44,8 @@ def get_new_request_state(
     validation_err = None
     if request.validate_tokens is not None:
         validation_err = request.validate_tokens(request, prompt_tokens)
+        if validation_err:
+            raise validation_err
 
     gen_seqs = [
         GenerationSequence(
